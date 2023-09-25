@@ -12,7 +12,7 @@ namespace MovieArchiveAPI.Applications.DirectorOperations.CreateDirector
         public CreateDirectorValidator(){
             RuleFor(i => i.Model.Name).NotNull();
             RuleFor(i => i.Model.Surname).NotNull();
-            RuleFor(i => i.Model.BirthDate).NotEmpty().LessThanOrEqualTo(DateTime.Now.Date);
+            RuleFor(i => i.Model.BirthDate).NotEmpty().LessThanOrEqualTo(DateTime.Now.Date.AddYears(-18));
         }
     }
 }

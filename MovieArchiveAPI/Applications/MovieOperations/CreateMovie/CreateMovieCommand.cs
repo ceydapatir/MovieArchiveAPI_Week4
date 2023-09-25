@@ -23,7 +23,7 @@ namespace MovieArchiveAPI.Applications.MovieOperations.CreateMovie
 
         // If there is no other movie with the same name, it will be added and if there is, it will throw an error.
         public void Handle(){
-            var movie = _context.Movies.Where(i => i.Name == Model.Name).SingleOrDefault();
+            var movie = _context.Movies.Where(i => i.Name == Model.Name).FirstOrDefault();
             if(movie is not null)
                 throw new InvalidOperationException("The movie already exists.");
             else

@@ -18,7 +18,7 @@ namespace MovieArchiveAPI.Applications.MovieOperations.DeleteMovie
 
         // Data with MovieId is searched, if any it is deleted, otherwise it throws an error.
         public void Handle(){
-            var movie = _context.Movies.Where(i => i.MovieId == MovieId).SingleOrDefault();
+            var movie = _context.Movies.Where(i => i.MovieId == MovieId).FirstOrDefault();
             if(movie is null)
                 throw new InvalidOperationException("The movie doesn't exist.");
             else

@@ -23,7 +23,7 @@ namespace MovieArchiveAPI.Applications.DirectorOperations.CreateDirector
 
         // If there is no other director with the same name, it will be added and if there is, it will throw an error.
         public void Handle(){
-            var director = _context.Directors.Where(i => i.Name == Model.Name).SingleOrDefault();
+            var director = _context.Directors.Where(i => i.Name == Model.Name).Where(i => i.Surname == Model.Surname).FirstOrDefault();
             if(director is not null)
                 throw new InvalidOperationException("The director already exists.");
             else

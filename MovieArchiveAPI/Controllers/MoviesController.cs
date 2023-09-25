@@ -79,9 +79,9 @@ namespace MovieArchiveAPI.Controllers
             return Ok(Movie); 
         }
 
-        // GET: api/Movies/{name}
-        [HttpGet("{name}")]
-        public IActionResult GetMovieByName(string name) { 
+        // GET: api/Movies/name
+        [HttpGet("name")]
+        public IActionResult GetMovieByName([FromQuery] string name) { 
             GetMovieByNameQuery query = new GetMovieByNameQuery(_context, _mapper, name);
             MovieViewModel Movie;
             try
@@ -95,9 +95,9 @@ namespace MovieArchiveAPI.Controllers
             return Ok(Movie); 
         }
 
-        // GET: api/Movies/{year}
-        [HttpGet("{year}")]
-        public IActionResult GetMoviesByYear(int year) { 
+        // GET: api/Movies/year
+        [HttpGet("year")]
+        public IActionResult GetMoviesByYear([FromQuery] int year) { 
             GetMoviesByYearQuery query = new GetMoviesByYearQuery(_context, _mapper, year);
             List<MovieViewModel> MovieList;
             try

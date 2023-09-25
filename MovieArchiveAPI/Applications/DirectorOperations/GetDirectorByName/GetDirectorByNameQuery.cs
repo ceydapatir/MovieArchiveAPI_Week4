@@ -22,8 +22,7 @@ namespace MovieArchiveAPI.Applications.DirectorOperations.GetDirectorByName
 
         // Data with name and surname is searched, if any it is returned, otherwise it throws an error.
         public DirectorViewModel Handle(){
-            var director = _context.Directors.Where(i => i.Name.Contains(Model.Name,StringComparison.OrdinalIgnoreCase))
-                .Where(i => i.Surname.Contains(Model.Surname,StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
+            var director = _context.Directors.Where(i => i.Name.Contains(Model.Name,StringComparison.OrdinalIgnoreCase) && i.Surname.Contains(Model.Surname,StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
             DirectorViewModel ViewModel = new DirectorViewModel();
             if( director is null)
                 throw new InvalidOperationException("The director doesn't exist.");

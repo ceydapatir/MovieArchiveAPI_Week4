@@ -18,7 +18,7 @@ namespace MovieArchiveAPI.Applications.DirectorOperations.DeleteDirector
 
         // Data with DirectorId is searched, if it exists and does not belong to a recorded movie, it is deleted, otherwise it gives an error.
         public void Handle(){
-            var director = _context.Directors.Where(i => i.DirectorId == DirectorId).SingleOrDefault();
+            var director = _context.Directors.Where(i => i.DirectorId == DirectorId).FirstOrDefault();
             if(director is null)
                 throw new InvalidOperationException("The director doesn't exist.");
             else{

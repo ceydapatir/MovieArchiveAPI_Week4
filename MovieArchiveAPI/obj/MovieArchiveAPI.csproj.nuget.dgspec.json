@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj": {}
+    "C:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj": {
+    "C:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
+        "projectUniqueName": "C:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
         "projectName": "MovieArchiveAPI",
-        "projectPath": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
+        "projectPath": "C:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
         "packagesPath": "C:\\Users\\patir\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\obj\\",
+        "outputPath": "C:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\patir\\AppData\\Roaming\\NuGet\\NuGet.Config"

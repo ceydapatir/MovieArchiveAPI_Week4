@@ -21,7 +21,7 @@ namespace MovieArchiveAPI.Applications.GenreOperations.GetGenreByName
 
         // Data with GenreName is searched, if any it is returned, otherwise it throws an error.
         public GenreViewModel Handle(){
-            var genre = _context.Genres.Where(i => i.Name.Contains(GenreName,StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
+            var genre = _context.Genres.Where(i => i.Name.Contains(GenreName,StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
             GenreViewModel ViewModel = new GenreViewModel();
             if( genre is null)
                 throw new InvalidOperationException("The genre doesn't exist.");

@@ -25,14 +25,18 @@ namespace MovieArchiveAPI.Applications.MovieOperations.UpdateMovie
 
         // Data with MovieId is searched, if any it is replaced with a new one, otherwise it throws an error.
         public void Handle(){
-            var movie = _context.Movies.Where(i => i.MovieId == MovieId).SingleOrDefault();
-            if(movie is null)
-                throw new InvalidOperationException("The movie doesn't exist.");
+            var movie = _context.Movies.Where(i => i.Name.Contains(Model.Name,StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            if(movie is not null) // Throw an error if the new name already exists in the system
+                throw new InvalidOperationException("The movie already exists.");
             else
-                movie = _mapper.Map(Model,movie);  // Reverse movie with ViewModel
-                movie.Director = _context.Directors.Where(i => i.DirectorId == movie.DirectorId).Single();
-                movie.Genre = _context.Genres.Where(i => i.GenreId == movie.GenreId).Single();
-                _context.SaveChanges();
+                movie = _context.Movies.Where(i => i.MovieId == MovieId).FirstOrDefault();
+                if(movie is null)
+                    throw new InvalidOperationException("The movie doesn't exist.");
+                else
+                    movie = _mapper.Map(Model,movie);  // Reverse movie with ViewModel
+                    movie.Director = _context.Directors.Where(i => i.DirectorId == movie.DirectorId).Single();
+                    movie.Genre = _context.Genres.Where(i => i.GenreId == movie.GenreId).Single();
+                    _context.SaveChanges();
         }
     }
 }

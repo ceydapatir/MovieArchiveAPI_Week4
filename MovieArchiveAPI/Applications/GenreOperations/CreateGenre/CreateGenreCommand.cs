@@ -23,7 +23,7 @@ namespace MovieArchiveAPI.Applications.GenreOperations.CreateGenre
 
         // If there is no other genre with the same name, it will be added and if there is, it will throw an error.
         public void Handle(){
-            var genre = _context.Genres.Where(i => i.Name == Model.Name).SingleOrDefault();
+            var genre = _context.Genres.Where(i => i.Name == Model.Name).FirstOrDefault();
             if(genre is not null)
                 throw new InvalidOperationException("The genre already exists.");
             else

@@ -7,7 +7,7 @@ namespace MovieArchiveAPI.Models.ViewModel
 {
     public class GenreViewModel
     {
-        public int Id { get; set; }
+        public int GenreId { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; } = true;
     }

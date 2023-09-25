@@ -21,7 +21,7 @@ namespace MovieArchiveAPI.Applications.DirectorOperations.GetDirectorById
 
         // Data with DirectorId is searched, if any it is returned, otherwise it throws an error.
         public DirectorViewModel Handle(){
-            var director = _context.Directors.Where(i => i.DirectorId == DirectorId).SingleOrDefault();
+            var director = _context.Directors.Where(i => i.DirectorId == DirectorId).FirstOrDefault();
             DirectorViewModel ViewModel = new DirectorViewModel();
             if( director is null)
                 throw new InvalidOperationException("The director doesn't exist.");

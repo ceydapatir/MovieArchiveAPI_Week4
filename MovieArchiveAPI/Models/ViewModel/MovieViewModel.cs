@@ -7,7 +7,7 @@ namespace MovieArchiveAPI.Models.ViewModel
 {
     public class MovieViewModel
     {
-        public int Id { get; set; }
+        public int MovieId { get; set; }
         public string Name { get; set; }
         public string Director { get; set; }
         public double IMDB { get; set; }

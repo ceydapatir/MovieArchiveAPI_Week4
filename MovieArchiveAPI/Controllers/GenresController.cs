@@ -78,9 +78,9 @@ namespace MovieArchiveAPI.Controllers
             return Ok(Genre); 
         }
 
-        // GET: api/Genres/{name}
-        [HttpGet("{name}")]
-        public IActionResult GetGenreByName(string name) { 
+        // GET: api/Genres/name
+        [HttpGet("name")]
+        public IActionResult GetGenreByName([FromQuery] string name) { 
             GetGenreByNameQuery query = new GetGenreByNameQuery(_context, _mapper, name);
             GenreViewModel Genre;
             try

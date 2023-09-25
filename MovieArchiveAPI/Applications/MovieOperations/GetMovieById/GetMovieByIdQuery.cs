@@ -22,7 +22,7 @@ namespace MovieArchiveAPI.Applications.MovieOperations.GetMovieById
 
         // Data with MovieId is searched, if any it is returned, otherwise it throws an error.
         public MovieViewModel Handle(){
-            var movie = _context.Movies.Include(i => i.Genre).Include(i => i.Director).Where(i => i.MovieId == MovieId).SingleOrDefault();
+            var movie = _context.Movies.Include(i => i.Genre).Include(i => i.Director).Where(i => i.MovieId == MovieId).FirstOrDefault();
             MovieViewModel ViewModel = new MovieViewModel();
             if( movie is null)
                 throw new InvalidOperationException("The movie doesn't exist.");

@@ -18,7 +18,7 @@ namespace MovieArchiveAPI.Applications.GenreOperations.DeleteGenre
 
         // Data with GenreId is searched, if it exists and does not belong to a recorded movie, it is deleted, otherwise it gives an error.
         public void Handle(){
-            var genre = _context.Genres.Where(i => i.GenreId == GenreId).SingleOrDefault();
+            var genre = _context.Genres.Where(i => i.GenreId == GenreId).FirstOrDefault();
             if(genre is null)
                 throw new InvalidOperationException("The genre doesn't exist.");
             else{
