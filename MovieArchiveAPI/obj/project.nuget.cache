@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RxNOUL3vOfrkxzAub+LMKVPVXzLpFsjNq41v45w2GAHePiVoN4XuSVxjBh/SiIwwZn2ggCCv+DRtNDIXa4ugOA==",
+  "dgSpecHash": "qlAydHz9AyZxeodjTZgHGPIxCsXENOA35y9iaPmEuWG4486nij4awClleTkZLovnHhhz+cOVCijG+bMaIMDukg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\patir\\Desktop\\Projeler\\Patika\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
+  "projectFilePath": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\patir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

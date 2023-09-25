@@ -1187,11 +1187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\patir\\Desktop\\Projeler\\Patika\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
+      "projectUniqueName": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
       "projectName": "MovieArchiveAPI",
-      "projectPath": "c:\\Users\\patir\\Desktop\\Projeler\\Patika\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
+      "projectPath": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\MovieArchiveAPI.csproj",
       "packagesPath": "C:\\Users\\patir\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\patir\\Desktop\\Projeler\\Patika\\MovieArchiveAPI\\obj\\",
+      "outputPath": "c:\\Users\\patir\\Documents\\GitHub\\MovieArchiveAPI_Week4\\MovieArchiveAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\patir\\AppData\\Roaming\\NuGet\\NuGet.Config"
