@@ -11,11 +11,16 @@ dotnet run
 
 ---
 ## Requests
+
+* ***If the genre or director is registered in a movie, they cannot be deleted. First, the movie is expected to be deleted from the system.***
+* ***When creating a new movie, a genre or director ID that does not exist in the system cannot be entered.***
+* ***The movie, genre or director must be updated with new data that does not exist in the system.***
+
 ### MoviesController.cs
 * GET   /api/Movies: This request throws an error if there is no movie in the database, otherwise it returns movies data.
 * GET   /api/Movies/{id}: This request returns the movie data has the received id, and if there is no such movie, it throws an error.
-* GET   /api/Movies/{name}: This request returns the movie data has the received name, and if there is no such movie, it throws an error.
-* GET   /api/Movies/{year}: This request returns the movies data has the received year, and if there is no such movie, it throws an error.
+* GET   /api/Movies/name: This request returns the movie data has the received name ([FromQuery] string name), and if there is no such movie, it throws an error.
+* GET   /api/Movies/year: This request returns the movies data has the received year ([FromQuery] int year), and if there is no such movie, it throws an error.
 * POST  /api/Movies: This request creates a new movie if there is no movie with the same name in the database, otherwise it throws an error.
 * PUT   /api/Movies/{id}: This request updates the movie data, with the received id, and if there is no such movie, it throws an error.
 * DELETE   /api/Movies/{id}: This request deletes the movie data, with the received id, and if there is no such movie, it throws an error.
@@ -30,8 +35,8 @@ dotnet run
   
 ### GenresController.cs
 * GET   /api/Genres: This request throws an error if there is no genre in the database, otherwise it returns genres data.
-* GET   /api/Genres/{id}: This request returns the genre data has the received id in the database, and if there is no such genre, it throws an error.
-* GET   /api/Genres/{name}: This request returns the genre data has the received name in the database, and if there is no such genre, it throws an error.
+* GET   /api/Genres/{id}: This request returns the genre data has the received id, and if there is no such genre, it throws an error.
+* GET   /api/Genres/name: This request returns the genre data has the received name ([FromQuery] string name), and if there is no such genre, it throws an error.
 * POST  /api/Genres: This request creates a new genre if there is no genre with the same id, otherwise it throws an error.
 * PUT   /api/Genres/{id}: This request updates the genre data, with the received id, and if there is no such genre, it throws an error.
 * DELETE   /api/Genres/{id}: This request deletes the genre data, with the received id, and if there is no such genre, it throws an error.
@@ -61,17 +66,16 @@ public MapperProfile(){
 
 ---
 ## Fluent Validation
-Fluent Validation was applied for all entities. Especially when creating a movie, it was ensured that GenreId and DirectorId values were not entered with values that did not exist in the database.
-Below is the Fluent Validation process performed for the POST request.
+Fluent Validation was applied for all entities. Below is the Fluent Validation process performed for the POST request.
 * Validation limits set in CreateMovieValidation.cs
 ```c#
 public CreateMovieValidator(MovieArchiveDBContext context){
             RuleFor(i => i.Model.Name).NotNull();
-            RuleFor(i => i.Model.DirectorId).NotEmpty().LessThanOrEqualTo(context.Directors.Count()).GreaterThan(0);
-            RuleFor(i => i.Model.GenreId).NotEmpty().LessThanOrEqualTo(context.Genres.Count()).GreaterThan(0);
+            RuleFor(i => i.Model.DirectorId).NotEmpty().GreaterThan(0);
+            RuleFor(i => i.Model.GenreId).NotEmpty().GreaterThan(0);
             RuleFor(i => i.Model.PublishDate).NotEmpty().LessThanOrEqualTo(DateTime.Now.Date);
             RuleFor(i => i.Model.ImageURL).NotNull();
-            RuleFor(i => i.Model.IMDB).NotEmpty().GreaterThan(0);
+            RuleFor(i => i.Model.IMDB).NotEmpty().GreaterThan(0).LessThanOrEqualTo(10);
         }
 ```
 
@@ -90,7 +94,7 @@ A basic middleware was created that provides HTTP request and response details. 
 * Movie
 ```
     {
-        UserId        integer
+        MovieId       integer
         DirectorId    integer
         GenreId       integer
         Name          string
@@ -105,7 +109,7 @@ A basic middleware was created that provides HTTP request and response details. 
 * MovieDTO
 ```
     {
-        DirectorId    integer
+        MovieId       integer
         GenreId       integer
         Name          string
         PublishDate   string($date-time)
@@ -116,7 +120,7 @@ A basic middleware was created that provides HTTP request and response details. 
 * MovieViewModel
 ```
     {
-        UserId        integer
+        MovieId       integer
         Director      string
         Genre         string
         Name          string
