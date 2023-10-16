@@ -1,5 +1,5 @@
 # MovieArchiveAPI_Week4
-It is the final version of the assignments required for Week 4. Genre and Director entities have been added to the project along with their controllers. The API provides the user with HTTP request methods for the genre, director and movie information that should be in a movie archive.
+It covers the first half (Assignment 5 and 6) of Week 4 assignment. Genre and Director entities have been added to the project along with their controllers. The API provides the user with HTTP request methods for the genre, director and movie information that should be in a movie archive.
 
 ---
 ## Installation
